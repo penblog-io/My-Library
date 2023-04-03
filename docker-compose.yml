@@ -1,0 +1,16 @@
+version: "3"
+services:
+  server:
+    container_name: "my-library"
+    image: "my-library"
+    volumes:
+      - ./:/home/node/app
+    ports:
+      - "3005:80"
+    command: "nodemon"
+  mongo:
+    image: mongo:6.0.4
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
